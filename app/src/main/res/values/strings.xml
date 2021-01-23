@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Simple Paint</string>
+    <string name="share_title">Share</string>
+    <string name="save_title">Save</string>
+    <string name="color_fab_positive_button_text">OK</string>
+    <string name="color_fab_negative_button_text">Cancel</string>
+    <string name="permission_granted_text">Permission added!</string>
+    <string name="permission_dialog_title">Store Permission</string>
+    <string name="permission_dialog_text">
+        Store Permission denied, please, add it in the App\'s Settings </string>
+    <string name="permission_dialog_positive_button_text">OK</string>
+    <string name="permission_dialog_negative_button_text">Cancel</string>
+    <string name="save_image_success_text">Image saved with success!</string>
+</resources>

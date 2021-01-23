@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Paint</string>
+    <string name="share_title">Compartilhar</string>
+    <string name="save_title">Salvar</string>
+    <string name="color_fab_positive_button_text">OK</string>
+    <string name="color_fab_negative_button_text">Cancelar</string>
+    <string name="permission_granted_text">Permissão adicionada com sucesso!</string>
+    <string name="permission_dialog_title">Permissão de Armazenamento</string>
+    <string name="permission_dialog_text">Permissão de Armazenamento negada, por favor,
+        certifique-se de adicionar as permissões necessárias</string>
+    <string name="permission_dialog_positive_button_text">OK</string>
+    <string name="permission_dialog_negative_button_text">Cancelar</string>
+    <string name="save_image_success_text">Imagem salva com sucesso!</string>
+</resources>
