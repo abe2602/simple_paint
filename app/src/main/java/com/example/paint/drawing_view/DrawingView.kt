@@ -26,10 +26,15 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
     private var canvasPaint: Paint? = null
 
     // Draw Paths
-    private val paths = ArrayList<CustomPath>()
+    private var myPaths: ArrayList<CustomPath> = arrayListOf()
 
     // Brush Color
-    private var colors: MutableList<Int> = mutableListOf(Color.BLACK, Color.WHITE, Color.WHITE, Color.WHITE)
+    private var colors: MutableList<Int> = mutableListOf(
+        Color.BLACK,
+        Color.WHITE,
+        Color.WHITE,
+        Color.WHITE
+    )
     private var currentColor = Color.BLACK
     // Brush Size
     private var brushSize: Float = 0.toFloat()
@@ -42,14 +47,15 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         drawPaint?.style = Paint.Style.STROKE
         drawPaint?.strokeJoin = Paint.Join.ROUND
         drawPaint?.strokeCap = Paint.Cap.ROUND
-        drawPaint?.isAntiAlias = true
+        //drawPaint?.isAntiAlias = true
 
         drawPath = CustomPath(colors[0], brushSize)
 
         canvasPaint = Paint(Paint.DITHER_FLAG)
-        canvasPaint?.isAntiAlias = true
+       // canvasPaint?.isAntiAlias = true
 
         brushSize = 20.toFloat()
+
     }
 
     // Instantiate the canvas here to access the screen size
@@ -69,10 +75,10 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         }
 
         // Want to retain what is being drawn
-        for(path in paths) {
+        for(path in myPaths) {
             drawPaint?.let {
-                it.strokeWidth = path.brushThickness
-                it.color = path.color
+                it.strokeWidth = 20.toFloat()//path.brushThickness
+                it.color = Color.BLACK //path.color
                 canvas?.drawPath(path, it)
             }
         }
@@ -100,7 +106,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
                 drawPath?.color = currentColor
                 drawPath?.brushThickness = brushSize
                 drawPath?.reset()
-                drawPath?.moveTo(x , y)
+                drawPath?.moveTo(x, y)
             }
 
             MotionEvent.ACTION_MOVE -> {
@@ -110,7 +116,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
 
             MotionEvent.ACTION_UP -> {
                 drawPath?.let {
-                    paths.add(it)
+                    myPaths.add(it)
                 }
                 drawPath = CustomPath(currentColor, brushSize)
             }
@@ -122,10 +128,15 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
     }
 
     fun undoLastDraw() {
-        if(paths.isNotEmpty()) {
-            paths.remove(paths.last())
+        if(myPaths.isNotEmpty()) {
+            myPaths.remove(myPaths.last())
             invalidate()
         }
+    }
+
+    fun deleteDraw() {
+        myPaths.clear()
+        invalidate()
     }
 
     fun setBrushColor(color: Int) {

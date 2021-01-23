@@ -2,7 +2,6 @@ package com.example.paint
 
 import android.Manifest
 import android.animation.Animator
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,16 +11,12 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.media.MediaScannerConnection
 import android.net.Uri
-import android.os.Bundle
-import android.os.Environment
-import android.os.Handler
-import android.os.Looper
+import android.os.*
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +24,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.paint.databinding.ActivityMainBinding
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -42,8 +38,10 @@ class MainActivity : AppCompatActivity() {
         viewModel = MainViewModel(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         listenButtonsAction()
         observeLiveData()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -108,12 +106,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {}
+
     private fun observeLiveData() {
         with(viewModel) {
             getStateEventLiveData().observe(this@MainActivity, {
-                if(it == EventState.LOADING) {
+                if (it == EventState.LOADING) {
                     displayLoading()
-                }else if(it == EventState.SUCCESS) {
+                } else if (it == EventState.SUCCESS) {
                     dismissLoading()
                 }
             })
@@ -270,10 +270,12 @@ class MainActivity : AppCompatActivity() {
                 undoFab.visibility = View.VISIBLE
                 brushSizeFab.visibility = View.VISIBLE
                 eraserFab.visibility = View.VISIBLE
+                clearFab.visibility = View.VISIBLE
 
-                undoFab.animate().translationY(-resources.getDimension(R.dimen.standard_75))
-                brushSizeFab.animate().translationY(-resources.getDimension(R.dimen.standard_120))
+                brushSizeFab.animate().translationY(-resources.getDimension(R.dimen.standard_75))
+                undoFab.animate().translationY(-resources.getDimension(R.dimen.standard_120))
                 eraserFab.animate().translationY(-resources.getDimension(R.dimen.standard_165))
+                clearFab.animate().translationY(-resources.getDimension(R.dimen.standard_200))
                     .setListener(object : Animator.AnimatorListener {
                         override fun onAnimationStart(animation: Animator?) {}
 
@@ -282,6 +284,7 @@ class MainActivity : AppCompatActivity() {
                                 undoFab.visibility = View.GONE
                                 brushSizeFab.visibility = View.GONE
                                 eraserFab.visibility = View.GONE
+                                clearFab.visibility = View.GONE
                             }
                         }
 
@@ -303,6 +306,7 @@ class MainActivity : AppCompatActivity() {
                 mainFab.animate().rotation(0F)
                 undoFab.animate().translationY(0F)
                 eraserFab.animate().translationY(0F)
+                clearFab.animate().translationY(0F)
             }
         }
     }

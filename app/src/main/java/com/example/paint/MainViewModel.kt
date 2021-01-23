@@ -19,6 +19,7 @@ class MainViewModel(private val context: Context) : ViewModel() {
     private val saveImageLiveData = MutableLiveData<Unit>()
     fun getSaveImageLiveData(): LiveData<Unit> = saveImageLiveData
 
+
     //Initialization of job
     private var job = Job()
 
@@ -49,5 +50,6 @@ class MainViewModel(private val context: Context) : ViewModel() {
             }
         }
     }
+
 }
 
