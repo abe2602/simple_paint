@@ -47,12 +47,12 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         drawPaint?.style = Paint.Style.STROKE
         drawPaint?.strokeJoin = Paint.Join.ROUND
         drawPaint?.strokeCap = Paint.Cap.ROUND
-        //drawPaint?.isAntiAlias = true
+        drawPaint?.isAntiAlias = true
 
         drawPath = CustomPath(colors[0], brushSize)
 
         canvasPaint = Paint(Paint.DITHER_FLAG)
-       // canvasPaint?.isAntiAlias = true
+        canvasPaint?.isAntiAlias = true
 
         brushSize = 20.toFloat()
 
@@ -77,8 +77,8 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         // Want to retain what is being drawn
         for(path in myPaths) {
             drawPaint?.let {
-                it.strokeWidth = 20.toFloat()//path.brushThickness
-                it.color = Color.BLACK //path.color
+                it.strokeWidth = path.brushThickness
+                it.color = path.color
                 canvas?.drawPath(path, it)
             }
         }

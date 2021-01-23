@@ -234,6 +234,10 @@ class MainActivity : AppCompatActivity() {
                 undoFab.setOnClickListener {
                     drawingView.undoLastDraw()
                 }
+
+                clearFab.setOnClickListener {
+                    drawingView.deleteDraw()
+                }
             }
         }
     }
