@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Simple Paint</string>
+    <string name="app_name">Drawing App</string>
     <string name="share_title">Share</string>
     <string name="save_title">Save</string>
     <string name="color_fab_positive_button_text">OK</string>
