@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.SeekBar
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
@@ -15,10 +16,12 @@ import com.example.paint.databinding.DialogBrushSizeBinding
 
 class BrushSizeDialog(
     context: Context,
+    private val brushSize: Int,
     private val okButton: (brushSize: Float) -> Unit,
 ) : Dialog(context) {
 
     private lateinit var binding: DialogBrushSizeBinding
+    private var newBrushSize: Int = brushSize
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,15 +31,26 @@ class BrushSizeDialog(
 
         with(binding) {
 
+            brushSizeSeekBar.progress = brushSize
+
+            brushSizeSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+
+                override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
+                    newBrushSize = i
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar) {}
+            })
+
             cancelButton.setOnClickListener {
                 dismiss()
             }
 
             saveButton.setOnClickListener {
-                val brushSizeText = brushSizeEditText.text.toString()
-
-                if(brushSizeText.isNotEmpty()) {
-                    okButton(brushSizeText.toFloat())
+                if(newBrushSize != 0) {
+                    okButton(newBrushSize.toFloat())
                 }
 
                 dismiss()

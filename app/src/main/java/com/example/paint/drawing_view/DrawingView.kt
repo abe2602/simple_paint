@@ -158,4 +158,6 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
     fun setBrushSize(brushSize: Float) {
         this.brushSize = brushSize
     }
+
+    fun getBrushSize() = brushSize
 }

@@ -183,7 +183,7 @@ class MainActivity : AppCompatActivity() {
 
                 brushSizeFab.setOnClickListener {
 
-                    BrushSizeDialog(this@MainActivity) {
+                    BrushSizeDialog(this@MainActivity, drawingView.getBrushSize().toInt()) {
                         drawingView.setBrushSize(it)
                     }.show()
 
