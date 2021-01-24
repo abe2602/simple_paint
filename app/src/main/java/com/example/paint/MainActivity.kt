@@ -88,7 +88,6 @@ class MainActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG
                 ).show()
             } else {
-                //Displaying another toast if permission is not granted
                 AlertDialog.Builder(this)
                         .setTitle(getString(R.string.permission_dialog_title))
                         .setMessage(getString(R.string.permission_dialog_text))
@@ -106,7 +105,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {}
+    override fun onBackPressed() {
+        val exitDialog = AlertDialog.Builder(this)
+            .setTitle(getString(R.string.exit_dialog_title))
+            .setMessage(getString(R.string.exit_dialog_text))
+            .setPositiveButton(getString(R.string.exit_dialog_positive_button_text)) { dialog: DialogInterface, _: Int ->
+                super.onBackPressed()
+                dialog.dismiss()
+            }
+            .setNegativeButton(getString(R.string.exit_dialog_negative_button_text)){ dialog: DialogInterface, _: Int ->
+                dialog.dismiss()
+            }.create()
+
+        if(!exitDialog.isShowing) {
+            exitDialog.show()
+        }
+    }
 
     private fun observeLiveData() {
         with(viewModel) {

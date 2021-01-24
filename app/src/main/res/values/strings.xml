@@ -14,4 +14,9 @@
     <string name="brush_size_dialog_positive_button_text">OK</string>
     <string name="brush_size_dialog_negative_button_text">Cancel</string>
     <string name="brush_size_dialog_edit_text_hint">Brush | Eraser size</string>
+    <string name="exit_dialog_title">Exit Dialog</string>
+    <string name="exit_dialog_text">
+        Your draw will be lost if you exit the App, do you want to proceed?</string>
+    <string name="exit_dialog_positive_button_text">Yes</string>
+    <string name="exit_dialog_negative_button_text">No</string>
 </resources>
