@@ -1,13 +1,12 @@
-package com.example.paint.splash
+package com.mobyle.paint.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
-import com.example.paint.MainActivity
-import com.example.paint.R
+import com.mobyle.paint.MainActivity
+import com.mobyle.paint.R
 
 class SplashActivity : AppCompatActivity() {
     private val splashTimeOut:Long = 1000

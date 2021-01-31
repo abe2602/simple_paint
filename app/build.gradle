@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.paint"
+        applicationId "com.mobyle.paint"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

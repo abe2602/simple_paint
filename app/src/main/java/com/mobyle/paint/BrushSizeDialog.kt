@@ -1,17 +1,10 @@
-package com.example.paint
+package com.mobyle.paint
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.SeekBar
-import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.fragment.app.DialogFragment
-import com.example.paint.databinding.DialogBrushSizeBinding
+import com.mobyle.paint.databinding.DialogBrushSizeBinding
 
 
 class BrushSizeDialog(

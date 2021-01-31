@@ -1,4 +1,4 @@
-package com.example.paint
+package com.mobyle.paint
 
 import android.Manifest
 import android.animation.Animator
@@ -22,7 +22,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.paint.databinding.ActivityMainBinding
+import com.mobyle.paint.databinding.ActivityMainBinding
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder
 
 
