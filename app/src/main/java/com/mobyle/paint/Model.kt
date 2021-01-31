@@ -1,4 +1,4 @@
-package com.example.paint
+package com.mobyle.paint
 
 enum class EventState {
     LOADING,

@@ -1,4 +1,4 @@
-package com.example.paint.drawing_view
+package com.mobyle.paint.drawing_view
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -55,7 +55,6 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         canvasPaint?.isAntiAlias = true
 
         brushSize = 20.toFloat()
-
     }
 
     // Instantiate the canvas here to access the screen size

@@ -1,4 +1,4 @@
-package com.example.paint
+package com.mobyle.paint
 
 import android.content.ContentValues
 import android.content.Context

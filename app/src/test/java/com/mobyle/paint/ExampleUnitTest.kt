@@ -1,4 +1,4 @@
-package com.example.paint
+package com.mobyle.paint
 
 import org.junit.Test
 

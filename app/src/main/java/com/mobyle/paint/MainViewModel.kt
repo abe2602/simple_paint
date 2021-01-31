@@ -1,4 +1,4 @@
-package com.example.paint
+package com.mobyle.paint
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -18,7 +18,6 @@ class MainViewModel(private val context: Context) : ViewModel() {
 
     private val saveImageLiveData = MutableLiveData<Unit>()
     fun getSaveImageLiveData(): LiveData<Unit> = saveImageLiveData
-
 
     //Initialization of job
     private var job = Job()
