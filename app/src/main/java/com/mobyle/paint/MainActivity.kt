@@ -231,18 +231,22 @@ class MainActivity : AppCompatActivity() {
 
                 blackColorButton.setOnClickListener {
                     setUsedColorToBrush(0)
+                    colorFab.backgroundTintList = ColorStateList.valueOf(drawingView.getPreviousColors()[0])
                 }
 
                 firstUsedColorButton.setOnClickListener {
                     setUsedColorToBrush(1)
+                    colorFab.backgroundTintList = ColorStateList.valueOf(drawingView.getPreviousColors()[1])
                 }
 
                 secondUsedColorButton.setOnClickListener {
                     setUsedColorToBrush(2)
+                    colorFab.backgroundTintList = ColorStateList.valueOf(drawingView.getPreviousColors()[2])
                 }
 
                 thirdUsedColorButton.setOnClickListener {
                     setUsedColorToBrush(3)
+                    colorFab.backgroundTintList = ColorStateList.valueOf(drawingView.getPreviousColors()[3])
                 }
 
                 undoFab.setOnClickListener {

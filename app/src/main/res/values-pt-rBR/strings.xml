@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Paint</string>
+    <string name="app_name">Drawing App</string>
     <string name="share_title">Compartilhar</string>
     <string name="save_title">Salvar</string>
     <string name="color_fab_positive_button_text">OK</string>
