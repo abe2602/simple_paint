@@ -9,6 +9,9 @@ na tela.
 ## Vídeo
 O código foi comentado no seguinte [vídeo](https://youtu.be/p6bwFFzC_7k), sinta-se a vontade para conferir!
 
+# Onde baixar
+O Aplicativo está disponível na [Google Play](https://play.google.com/store/apps/details?id=com.mobyle.paint)
+
 ## Author
 Bruno Abe
 
